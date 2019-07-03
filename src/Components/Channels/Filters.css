@@ -1,0 +1,36 @@
+.channelfilter_page{
+  display: flex;
+  flex-direction: column;
+}
+
+.filters{
+  display: flex;
+  flex-direction: column;
+  width: 280px;
+  height: auto;
+  padding-top: 5px;
+  padding-right: 10px;
+  box-sizing: border-box;
+  margin: 5px;
+}
+.filter1{
+  display: flex;
+  flex-direction: column;
+}
+.filterSvg{
+  transform: rotate(-90deg);
+}
+.all_filters{
+  height: 500px;
+  background: red;
+}
+.single_filter{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px;
+  box-shadow: 1px 2px 0px 0px rgba(0,0,0,0.4);
+  min-height:60px;
+  font-size: 18px;
+  font-weight: bold;
+}
