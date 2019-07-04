@@ -12,14 +12,15 @@ class NewsList extends React.Component{
 	render(){
 		return(
 			<div className="all_news">
-				<StackGrid columnWidth={250} monitorImagesLoaded={true} >
+				<StackGrid columnWidth={350} monitorImagesLoaded={true} gutterWidth="6" >
 				{
 					this.props.news.map((single)=>{
 						return(
 							<div className="single_news" key={single.title}>
-									<img className="news_image" alt="news" src={single.urlToImage} />
-							        <div className="news_title" key="key1">{single.title}</div>
-							        <Button className="more_button" variant="outline-success">Know More</Button>
+									<img className="news_image" alt="Loading" src={single.urlToImage} />
+							        <div className="news_title" >{single.title}</div>
+							        <div className="news_description" >{single.content}</div>
+							        <a href={single.url}><Button className="more_button" variant="outline-success">Know More</Button></a>
 							</div>
 							);
 					})

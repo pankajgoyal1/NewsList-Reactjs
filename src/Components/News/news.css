@@ -1,5 +1,5 @@
 .single_news{
-	margin: 5px;
+	margin: 5px 0px 0px 5px ;
 	border: 0px .1px solid rgb(52, 58, 64) .1px solid rgb(52, 58, 64) .1px solid rgb(52, 58, 64);
 	box-sizing: border-box;
 	box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.8);
@@ -16,7 +16,17 @@
 	margin-left: 2px;
 	margin-right: 2px;
 	font-size: 18px;
-	font-weight: 500;
+	font-weight: 520;
+	color: black;
+	border-bottom: .1px solid green ;
+}
+.news_decription{
+	margin-top: 5px;
+	margin-left: 2px;
+	margin-right: 2px;
+	font-size: 16px;
+	font-weight: bold;
+	color: white;
 }
 .more_button{
 	background-color: white;
