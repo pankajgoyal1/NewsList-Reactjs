@@ -12,7 +12,6 @@ class News extends React.Component{
 	render(){
 		return(
 			<div className="newslist_page">
-				<NewsFilters />
 				<NewsList news={this.props.news} />
 
 			</div>
