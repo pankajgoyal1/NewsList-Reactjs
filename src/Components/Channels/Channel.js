@@ -9,12 +9,13 @@ class Channels extends React.Component{
 		this.state={
 		}
 	}
+	
 	render(){
 		return(
 			<div className="channel_page">
 
-				<ChannelFilters />
-				<ChannelList onChannelSelect={(id)=>this.props.onChannelSelect(id)} channels={this.props.channels} />
+				<ChannelFilters filterItems={(val,type)=>this.props.filterItems(val,type)} category={this.props.category} language={this.props.language} country={this.props.country} />
+				<ChannelList onChannelSelect={(id)=>this.props.onChannelSelect(id)} channels={this.props.filterChannels} />
 			</div>
 			);
 	}

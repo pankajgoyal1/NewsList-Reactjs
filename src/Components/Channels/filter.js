@@ -1,6 +1,6 @@
 import React from 'react';
 import './Filters.css';
-class FilterType extends React.Component
+class FilterOptions extends React.Component
 {
 	constructor(props){
 		super(props);
@@ -9,24 +9,53 @@ class FilterType extends React.Component
 		}
 
 	}
+	changeOption = (type,e)=>{
+		var val = e.target.value;
+		//console.log(val);
+		this.props.changeOption(val,type);
+	}
+
 	render()
 	{
-		const {name}=this.props;
+		//console.log(this.props.category)
+		const {filters}=this.props;
 		return(
-			<div className="single_filter">
-				<div >
-					<span className="filter4" >{name}</span>
+				<div>
+					<div className="single_filter">
+					  <label>{this.props.filters[0].type}</label>
+			          <select id={filters[0].type} className="select" value={this.props.category} onChange={this.changeOption.bind(this,filters[0].type)}>
+			          {
+			          	filters[0].content.map(function(option) {
+			            return (
+			             <option className="options" key={option} value={option}>{option}</option> )
+			          	})
+			          }
+			          </select>
+					</div>
+					<div className="single_filter">
+					  <label>{filters[1].type}</label>
+			          <select id={filters[1].type} className="select" value={this.props.language} onChange={this.changeOption.bind(this,filters[1].type)}>
+			          {
+			          	filters[1].content.map(function(option) {
+			            return (
+			             <option key={option} value={option}>{option}</option> )
+			          	})
+			          }
+			          </select>
+					</div>
+					<div className="single_filter">
+					  <label>{filters[2].type}</label>
+			          <select id={filters[2].type} className="select"  value={this.props.country} onChange={this.changeOption.bind(this,filters[2].type)}>
+			          {
+			          	filters[2].content.map(function(option) {
+			            return (
+			             <option key={option} value={option}>{option}</option> )
+			          	})
+			          }
+			          </select>
+					</div>
 				</div>
-				<div className="">
-					<svg width="4.7" height="8" viewBox="0 0 16 27" 
-						xmlns="http://www.w3.org/2000/svg" className="filterSvg">
-						<path d="M16 23.207L6.11 13.161 16 3.093 12.955 0 
-						0 13.161l12.955 13.161z" fill="#212121" className="filter4">
-						</path>
-					</svg>
-				</div>
-			</div>
-			);
+			)
 	}
 }
-export default FilterType;
+export default FilterOptions;

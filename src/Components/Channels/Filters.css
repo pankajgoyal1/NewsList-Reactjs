@@ -1,6 +1,9 @@
-.channelfilter_page{
+.channelfilters_page{
   display: flex;
   flex-direction: column;
+  background-color: #fff;
+  margin-right: 10px;
+  height:100vh;
 }
 
 .filters{
@@ -20,6 +23,9 @@
 .filterSvg{
   transform: rotate(-90deg);
 }
+.filterSvg:hover{
+  transform: rotate(-270deg);
+}
 .all_filters{
   height: 500px;
   background: red;
@@ -33,4 +39,16 @@
   min-height:60px;
   font-size: 18px;
   font-weight: bold;
+}
+.select{
+  border: 1px solid #f3f3f3;
+  margin-left: 10px;
+  width: 120px;
+  padding-left:10px;
+  background: #f2f2f2;
+  color: black;
+}
+.options{
+  background-color: #f2f2f2;
+  color: black;
 }

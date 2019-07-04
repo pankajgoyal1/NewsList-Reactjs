@@ -12,7 +12,8 @@ class NewsList extends React.Component{
 	render(){
 		return(
 			<div className="all_news">
-				<StackGrid columnWidth={350} monitorImagesLoaded={true} gutterWidth="6" >
+				<a href="/" className="back_link">Back To Previous Page</a>
+				<StackGrid columnWidth={350} monitorImagesLoaded={true} >
 				{
 					this.props.news.map((single)=>{
 						return(

@@ -9,6 +9,8 @@
 	flex-direction: row;
 	flex-wrap: wrap;
 	padding: 10px;
+	background-color: #fff;
+	margin-bottom: 50px;
 }
 .single_channel{
 	max-width: 1200px;
