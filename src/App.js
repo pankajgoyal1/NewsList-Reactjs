@@ -38,7 +38,7 @@ class App extends React.Component {
     .then(data=>{this.setState({news:data.articles,loader:false})})
   }
   filterItems = async (val,type)=>{
-    console.log(val,type);
+    //console.log(val,type);
     if(flag === 1)
     {
       await this.setState({filterChannels:this.state.channels})
@@ -59,7 +59,7 @@ class App extends React.Component {
       }
   }
    filterAPI = (val,type)=>{
-    console.log("Before Filter",this.state.filterChannels);
+    //console.log("Before Filter",this.state.filterChannels);
     //console.log(val);
     var filterChannels= this.state.filterChannels.filter((channel)=>{
         if(type === "Category")
@@ -82,14 +82,24 @@ class App extends React.Component {
           }
     })
      this.setState({filterChannels:filterChannels});
-    console.log("After Filter",this.state.filterChannels);
+    //console.log("After Filter",this.state.filterChannels);
 
     }
+    onSearchChange = (e)=>{
+      this.setState({q:e});
+    }
+    apiCall = ()=>{
+      this.setState({loader:true})
+      const {q}=this.state;
+      fetch(`https://newsapi.org/v2/top-headlines?q=${q}&apiKey=b3bb678da39741988a34ecbfee58beed`)
+      .then(response=>response.json())
+      .then(data=>{this.setState({route:"news",news:data.articles,loader:false})})
+    }
   render(){
-    console.log("render",this.state.filterChannels);
+    //console.log("render",this.state.filterChannels);
     return (
       <div className="App">
-        <NavBar />
+        <NavBar onSearchChange={(e)=>this.onSearchChange(e)} onSearchRequest={this.apiCall} />
         {
           this.state.loader === true
           ? <Loader 
@@ -101,12 +111,12 @@ class App extends React.Component {
           :[
             (this.state.route === 'home'
              ?
-             <Channels
+             <Channels key="channels"
               filterChannels={this.state.filterChannels}
                onChannelSelect={(id)=>{this.onChannelSelect(id)}}
                filterItems={(val,type)=>{this.filterItems(val,type)}}
               category={this.state.category} language={this.state.language} country={this.state.country} />
-             : <News id={this.state.id} news={this.state.news} />)
+             : <News key="news"id={this.state.id} news={this.state.news} />)
           ]
         }        
       </div>

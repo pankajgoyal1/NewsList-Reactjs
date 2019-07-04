@@ -1,6 +1,5 @@
 import React from 'react';
 import NewsList from './NewsList';
-import NewsFilters from './NewsFilters';
 
 class News extends React.Component{
 	constructor(props){

@@ -5,7 +5,7 @@
   margin-right: 10px;
   height:100vh;
 }
-
+ 
 .filters{
   display: flex;
   flex-direction: column;
@@ -51,4 +51,23 @@
 .options{
   background-color: #f2f2f2;
   color: black;
+}
+#navbar_filter{
+  display: flex;
+  flex-direction: column;
+  background: #f3f3f3;
+}
+@media(max-width: 700px)
+{
+  .navbar_filter{
+
+  width: 250px;
+}
+}
+
+@media (max-width: 700px){
+  .channelfilters_page{
+    width: 100vw;
+    height: 100px;
+  }
 }

@@ -14,33 +14,37 @@ class ChannelList extends React.Component{
 			<div className="channellist_page">
 				<div className="">
 					<div className="">
-						<div className="">
-						</div>
 						{	
-
-							channels.map((channel)=>{
+							channels.length > 0
+							?
+							<div>
+								{
+									channels.map((channel)=>{
 							
-								return(
-									<div className="single_channel" key={channel.id}>
-										<div className="channel_name">
-											<span className="">{channel.name}</span><br />
-										</div>
-										<div className="channel_description">
-											<span className="">{channel.description}</span>
-										</div>
-										<div className="channel_category">
-											<span className="">Category: {channel.category}</span><br />
-										</div>
-										<div className="channel_country">
-											<span className="">Country Code: {channel.country}</span><br />
-										</div>
-										<div className="news_button">
-									      <Button variant="outline-success" onClick={()=>{this.props.onChannelSelect(channel.id)}}>Find News</Button>
-										</div>
+									return(
+										<div className="single_channel" key={channel.id}>
+											<div className="channel_name">
+												<span className="">{channel.name}</span><br />
+											</div>
+											<div className="channel_description">
+												<span className="">{channel.description}</span>
+											</div>
+											<div className="channel_category">
+												<span className="">Category: {channel.category}</span><br />
+											</div>
+											<div className="channel_country">
+												<span className="">Country Code: {channel.country}</span><br />
+											</div>
+											<div className="news_button">
+										      <Button variant="outline-success" onClick={()=>{this.props.onChannelSelect(channel.id)}}>Find News</Button>
+											</div>
 
-									</div>
-									);
-							})
+										</div>
+										);
+									})
+								}
+							</div>
+							:<div className="empty_page"> Not Available</div>
 						}
 					</div>
 				</div>
